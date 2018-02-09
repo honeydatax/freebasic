@@ -15,9 +15,10 @@ End Sub
 
 
 
-Screen 12
+ScreenRes 640, 480, 16
 Dim ip As Any Ptr
-Dim As Integer x, y,w,h,c
+Dim As Integer x, y,w,h
+dim c as byte
 
 
 
@@ -26,15 +27,15 @@ Dim As Integer x, y,w,h,c
 ScreenSync
   ScreenLock
   View (0,0)-(639,479)
-line (0,0)-(640,480),15,bf
-c=1
-For y = 0 to 300 step 25
+line (0,0)-(640,480),rgb(255,255,255),bf
+c=32
+For y = 1to 300 step 25
 
 View (y-1,y-1)-(102+y,102+y)
-Line (0,0)-(102,102), 0 ,b
+Line (0,0)-(102,102), rgb(0,0,0) ,b
 View (y,y)-(100+y,100+y)
-Line (0,0)-(100,100), c, bf
-c=c+1
+Line (0,0)-(100,100), rgb(c,c,c), bf
+c=c+16
 Next y
 
 ScreenUnlock
