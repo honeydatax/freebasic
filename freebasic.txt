@@ -4,3 +4,14 @@ https://www.freebasic.net/wiki/wikka.php?wakka=DocToc
 
 downloads
 http://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/repos/devel/fbc.zip
+
+
+
+the files exe mode must be in directory:
+http://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/repos/util/cwsdpmi.zip
+
+
+
+
+to compile:
+fbc file.bas
