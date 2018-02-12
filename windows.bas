@@ -17,7 +17,22 @@ end type
 type wwin
 win(0 to maxWin) as windows
 count as integer
+wins(0 to maxWin) as integer
 end type
+
+sub moveToFront(w as wwin,i as integer)
+dim a as integer
+dim b as integer
+dim c as integer
+b=w.wins(i)
+for a =i to w.count-2
+c=w.wins(a+1)
+w.wins(a)=c
+next a
+w.wins(w.count-1)=b
+
+end sub
+
 
 
 sub drawWindows(byref w as wwin)
@@ -25,7 +40,7 @@ dim a as integer
 ScreenSync
   ScreenLock
 for a= 0 to w.count-1
-put (w.win(a).x,w.win(a).y),w.win(a).images,pset
+put (w.win(w.wins(a)).x,w.win(w.wins(a)).y),w.win(w.wins(a)).images,pset
 next a
 ScreenUnlock
 
@@ -55,6 +70,7 @@ w.win(w.count-1).w=ww
 w.win(w.count-1).h=hh
 w.win(w.count-1).title=title
 w.win(w.count-1).titlebar=tbar
+w.wins(w.count-1)=w.count-1
 if tbar then drawTitleBar w,w.count-1
 line w.win(w.count-1).images,(0,0)-(ww-1,hh-1),rgb(0,0,0),b
 r=w.count-1
@@ -115,8 +131,8 @@ Draw String win.win(6).images,(4,TitleBarSize +8 ),str$(second(a)),rgb(0,0,255)
 
 
 drawWindows win
-sleep 100
-
+sleep 1000
+moveToFront(win,1)
 loop until inkey$<>""
 
 
