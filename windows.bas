@@ -22,10 +22,14 @@ end type
 
 sub drawWindows(byref w as wwin)
 dim a as integer
-
+ScreenSync
+  ScreenLock
 for a= 0 to w.count-1
 put (w.win(a).x,w.win(a).y),w.win(a).images,pset
 next a
+ScreenUnlock
+
+
 end sub
 
 
@@ -84,12 +88,8 @@ i=creatWindows(win,0,0,w,h,rgb(0,128,255),s,false)
 
 
 for ii= 0 to maxWin-1
-i=creatWindows(win,ii*w/maxWin,ii*h/maxWin,w-w/maxwin*2,h/maxWin,rgb(255,255,255),s,true)
-if i>0 then
+i=creatWindows(win,ii*w/maxWin,ii*h/maxWin,w-w/maxwin*2,h/maxWin*3,rgb(255,255,255),s,true)
 
-
-else
-end if
 next ii
 
 drawWindows(win)
