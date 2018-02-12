@@ -1,6 +1,6 @@
 const true as boolean=-1
 const false as boolean=0
-const TitleBarSize as integer=20
+const TitleBarSize as integer=16
 const maxWin as integer=10
 type windows
 x as integer
@@ -32,7 +32,10 @@ ScreenUnlock
 
 end sub
 
-
+sub drawClsWindow(w as wwin,i as integer)
+line w.win(i).images,(0,TitleBarSize+1)-(w.win(i).w,w.win(i).h),rgb(255,255,255),bf
+line w.win(i).images,(0,0)-(w.win(i).w-1,w.win(i).h-1),rgb(0,0,0),b
+end sub 
 
 sub drawTitleBar(byref w as wwin,i as integer)
 line w.win(i).images,(0,0)-(w.win(i).w,TitleBarSize),rgb(0,0,255),bf
@@ -60,7 +63,8 @@ return r
 end function
 
 
-
+#include "vbcompat.bi"
+Dim a As Double, b As Double
 dim win as wwin
 dim x as integer
 dim y as integer
@@ -87,12 +91,33 @@ win.count=0
 i=creatWindows(win,0,0,w,h,rgb(0,128,255),s,false)
 
 
-for ii= 0 to maxWin-1
-i=creatWindows(win,ii*w/maxWin,ii*h/maxWin,w-w/maxwin*2,h/maxWin*3,rgb(255,255,255),s,true)
+i=creatWindows(win,20,20,160,80,rgb(255,255,255),"month",true)
+i=creatWindows(win,40,40,160,80,rgb(255,255,255),"day",true)
+i=creatWindows(win,60,60,160,80,rgb(255,255,255),"year",true)
+i=creatWindows(win,80,80,160,80,rgb(255,255,255),"hour",true)
+i=creatWindows(win,100,100,160,80,rgb(255,255,255),"minuts",true)
+i=creatWindows(win,120,120,160,80,rgb(255,255,255),"seconds",true)
 
+
+do
+for ii=1 to win.count-1
+ drawClsWindow win,ii
 next ii
 
-drawWindows(win)
+a = Now
+Draw String win.win(1).images,(4,TitleBarSize +8 ),str$(month(a)),rgb(0,0,255)
+Draw String win.win(2).images,(4,TitleBarSize +8 ),str$(day(a)),rgb(0,0,255)
+Draw String win.win(3).images,(4,TitleBarSize +8 ),str$(year(a)),rgb(0,0,255)
+
+Draw String win.win(4).images,(4,TitleBarSize +8 ),str$(Hour(a)),rgb(0,0,255)
+Draw String win.win(5).images,(4,TitleBarSize +8 ),str$(minute(a)),rgb(0,0,255)
+Draw String win.win(6).images,(4,TitleBarSize +8 ),str$(second(a)),rgb(0,0,255)
+
+
+drawWindows win
+sleep 100
+
+loop until inkey$<>""
 
 
 
@@ -102,6 +127,4 @@ drawWindows(win)
 
 
 
-
-Sleep
 cls
