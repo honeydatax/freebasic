@@ -20,6 +20,9 @@ count as integer
 wins(0 to maxWin) as integer
 end type
 
+
+
+
 sub moveToFront(w as wwin,i as integer)
 dim a as integer
 dim b as integer
@@ -58,6 +61,20 @@ Draw String w.win(i).images,(4, 4), w.win(i).title,rgb(255,255,255)
 line w.win(i).images,(0,0)-(w.win(i).w,TitleBarSize),rgb(0,0,0),b
 end sub
 
+function clickons(w as wwin,x as integer,y as integer) as integer
+dim a as integer
+dim b as integer
+dim c as integer=-1
+for a=w.count-1 to 1 step -1
+if x> w.win(w.wins(a)).x and x<w.win(w.wins(a)).x+w.win(w.wins(a)).w and y>w.win(w.wins(a)).y and y<w.win(w.wins(a)).y+w.win(w.wins(a)).h then
+c=a
+a=0
+end if
+next a
+return c
+end function
+
+
 function creatWindows(byref w as wwin,xx as integer,yy as integer, ww as integer ,hh as integer, ccolors as ulong,title as string,tbar as boolean) as integer
 dim r as integer=-1
 if w.count < maxwin -1 then
@@ -88,6 +105,11 @@ dim i as integer
 dim w as integer
 dim h as integer
 dim ii as integer
+dim y1 as integer
+dim b1 as integer
+
+dim bb as integer
+dim x1 as integer
 w=640
 h=480
 
@@ -131,8 +153,14 @@ Draw String win.win(6).images,(4,TitleBarSize +8 ),str$(second(a)),rgb(0,0,255)
 
 
 drawWindows win
-sleep 1000
-moveToFront(win,1)
+sleep 1
+GetMouse(x1,y1,,b1)
+if b1<> 0 then
+b1=clickons (win,x1,y1)
+if b1<> -1 then
+moveToFront(win,b1)
+end if
+end if 
 loop until inkey$<>""
 
 
