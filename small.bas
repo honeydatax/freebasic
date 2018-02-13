@@ -14,9 +14,9 @@ pos2=pos1
 for y=0 to h-1step s2
 for x=0 to w-1 step s1
 ccolor=image[pos1]
-ccolor=image[pos1+1]
+ccolor2=image[pos1+1]
 images[pos3]=ccolor
-images[pos3+1]=ccolor
+images[pos3+1]=ccolor2
 pos3=pos3+2
 pos1=pos1+(2*s1)
 next x
