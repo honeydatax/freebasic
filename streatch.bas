@@ -16,10 +16,10 @@ for yy = 0 to s2-1
 pos1=pos2
 for x=0 to w-1
 ccolor=image[pos1]
-ccolor=image[pos1+1]
+ccolor2=image[pos1+1]
 for xx=0 to s1-1
 images[pos3]=ccolor
-images[pos3+1]=ccolor
+images[pos3+1]=ccolor2
 pos3=pos3+2
 next xx
 pos1=pos1+2
