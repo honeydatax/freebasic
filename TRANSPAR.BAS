@@ -1,4 +1,4 @@
-Declare Function checkered_blend( ByVal src As UInteger, ByVal dest As UInteger, ByVal param As Any Ptr ) As UInteger
+
 
    ScreenRes 640,480, 16
    
