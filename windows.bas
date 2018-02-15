@@ -20,7 +20,12 @@ count as integer
 wins(0 to maxWin) as integer
 end type
 
-
+sub closeG(w as wwin)
+dim a as integer
+for a=0 to maxWin-1
+ImageDestroy w.win(a).images
+next
+end sub
 
 
 sub moveToFront(w as wwin,i as integer)
@@ -166,7 +171,7 @@ loop until inkey$<>""
 
 
 
-
+closeG win
 
 
 
