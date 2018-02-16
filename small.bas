@@ -41,7 +41,7 @@ Put (0, 0), image, PSet
 small image,images,64,64,2,2
 
 Put (0, 160), images, PSet
-
+bsave "marina2.bmp",images
 '' Destroy the image.
 ImageDestroy image
 ImageDestroy images
