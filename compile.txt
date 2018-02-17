@@ -1,0 +1,2 @@
+'compile :
+'fbc file.bas
