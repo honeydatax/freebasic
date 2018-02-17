@@ -14,8 +14,9 @@ ScreenInfo w, h, , bypp, pitch
 locate 1,1
 print "loading..."
 fillmem(320*200,object1)
+ScreenLock()
 copymem(320,200,object1,screenptr(),pitch,bypp)
-
+ScreenUnlock()
 Deallocate (object1)
 
 
