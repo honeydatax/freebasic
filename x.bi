@@ -1,8 +1,12 @@
-
+const maxxxx=10
+const screenw=640
+const screenh=480
 
 type objc
 x as integer
 y as integer
+z as integer
+r as integer
 pic as integer
 end type
 
@@ -28,7 +32,7 @@ declare sub mult(byref max as integer,byval maxi as integer,byval y as integer, 
 declare sub inverter (byval max as integer,byref n as integer,byref y as integer)
 declare function creatpics(c as conj,w as integer , h as integer)as integer
 declare sub drawobj(c as conj)
-declare function creatobj(c as conj,x as integer,y as integer, pic as integer)as integer
+declare function creatobj(c as conj,x as integer,y as integer,z as integer, pic as integer)as integer
 
 
 
@@ -82,9 +86,9 @@ end sub
 
 sub startx(c as conj)
 screen 12
-line(0,0)-(640,480),15,bf
+line(0,0)-(screenw,screenh),15,bf
 draw string (10,10),"loading...",1
-c.cene=ImageCreate(640,480 )
+c.cene=ImageCreate(screenw,screenh )
 event_drawscreens c.cene
 end sub
 
@@ -111,14 +115,31 @@ end function
 
 sub drawobj(c as conj)
 dim n as integer
+dim t as integer=0
+dim yyy as integer=screenh
+dim y as integer=0
+dim xxxx as integer=0
+dim x as integer=0
+dim yy as integer=0
+dim xxx as integer=0
+dim x1 as integer
+dim y1 as integer
+
 
 put (0,0),c.cene,pset
 for n=0 to c.o -1
-put (c.objcts(n).x,c.objcts(n).y), c.pics(c.objcts(n).pic).pic,trans
+xxxx=c.objcts(n).x
+t=screenh-c.objcts(n).y
+inverter yyy,t,y
+defineX xxxx,maxxxx,screenw,screenh,255,t*188/354,2,xxx
+mult screenh,255,t*188/354,2,yy
+x1=xxx-c.objcts(n).r*yy
+y1=y-c.objcts(n).r*yy
+put (x1,y1), c.pics(c.objcts(n).pic).pic,trans
 next n
 end sub
 
-function creatobj(c as conj,x as integer,y as integer, pic as integer)as integer
+function creatobj(c as conj,x as integer,y as integer,z as integer, pic as integer)as integer
 dim a as integer = -1
 if c.o<maxobjc then
 c.o=c.o+1
