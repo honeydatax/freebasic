@@ -124,15 +124,17 @@ dim yy as integer=0
 dim xxx as integer=0
 dim x1 as integer
 dim y1 as integer
-
+dim z as integer
+dim y2 as integer
 
 put (0,0),c.cene,pset
 for n=0 to c.o -1
 xxxx=c.objcts(n).x
-t=screenh-c.objcts(n).y
+t=screenh-c.objcts(n).z
 inverter yyy,t,y
 defineX xxxx,maxxxx,screenw,screenh,255,t*188/354,2,xxx
 mult screenh,255,t*188/354,2,yy
+y=y-(c.objcts(n).y*c.objcts(n).r*yy)
 x1=xxx-c.objcts(n).r*yy
 y1=y-c.objcts(n).r*yy
 put (x1,y1), c.pics(c.objcts(n).pic).pic,trans

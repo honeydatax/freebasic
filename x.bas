@@ -21,7 +21,9 @@ dim xxx as integer=0
 dim xxxx as integer=0
 dim tpict as integer
 dim t as integer
+dim y2 as integer
 startx c
+
 
 
 for r=screenh to 0 step -8
@@ -37,11 +39,14 @@ s=inkey$()
 do
 x=0
 c.objcts(0).r=1
+for y2=0 to 10
+for xxxx=0 to 10
 for r=0 to 58
 
 t=r*8
 c.objcts(0).x=xxxx
-c.objcts(0).y=t
+c.objcts(0).z=t
+c.objcts(0).y=y2
 
 c.objcts(0).pic=r
 ScreenSync
@@ -53,8 +58,8 @@ if inkey$=chr$(27)then goto exitdo
 sleep 1
 
 next r
-xxxx=xxxx+1
-if xxxx>10 then xxxx=0
+next xxxx
+next y2
 loop until inkey$=chr$(27)
 
 
