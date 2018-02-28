@@ -25,7 +25,6 @@ dim y2 as integer
 startx c
 
 
-
 for r=screenh to 0 step -8
 
 mult screenh,255,r*188/354,2,yy
@@ -35,13 +34,16 @@ next r
 
 r=creatobj(c,0,0,0,0)
 
+
+
+c.objcts(0).r=1
+x=0
+y2=0
+
+r=0
+xxxx=0
 s=inkey$()
 do
-x=0
-c.objcts(0).r=1
-for y2=0 to 10
-for xxxx=0 to 10
-for r=0 to 58
 
 t=r*8
 c.objcts(0).x=xxxx
@@ -57,9 +59,20 @@ if inkey$=chr$(27)then goto exitdo
 
 sleep 1
 
-next r
-next xxxx
-next y2
+r=r+1
+if r>58 then
+r=0
+xxxx=xxxx+1
+endif
+if xxxx>10 then
+xxxx=0
+y2=y2+1
+endif
+
+if y2>10 then
+y2=0
+endif
+
 loop until inkey$=chr$(27)
 
 

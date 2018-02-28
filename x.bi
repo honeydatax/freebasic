@@ -17,6 +17,7 @@ end type
 
 type conj
 objcts (0 to maxobjc)as objc
+list (0 to maxobjc) as integer
 pics(0 to maxpics) as pics
 cene as any ptr
 o as integer
@@ -129,15 +130,15 @@ dim y2 as integer
 
 put (0,0),c.cene,pset
 for n=0 to c.o -1
-xxxx=c.objcts(n).x
-t=screenh-c.objcts(n).z
+xxxx=c.objcts(c.list(n)).x
+t=screenh-c.objcts(c.list(n)).z
 inverter yyy,t,y
 defineX xxxx,maxxxx,screenw,screenh,255,t*188/354,2,xxx
 mult screenh,255,t*188/354,2,yy
-y=y-(c.objcts(n).y*c.objcts(n).r*yy)
-x1=xxx-c.objcts(n).r*yy
-y1=y-c.objcts(n).r*yy
-put (x1,y1), c.pics(c.objcts(n).pic).pic,trans
+y=y-(c.objcts(c.list(n)).y*c.objcts(c.list(n)).r*yy)
+x1=xxx-c.objcts(c.list(n)).r*yy
+y1=y-c.objcts(c.list(n)).r*yy
+put (x1,y1), c.pics(c.objcts(c.list(n)).pic).pic,trans
 next n
 end sub
 
@@ -149,8 +150,21 @@ c.objcts(c.o-1).x=x
 c.objcts(c.o-1).y=y
 c.objcts(c.o-1).pic=pic
 a=c.o
+c.list(c.o-1)=c.o-1
 end if
 return a
 
 end function
 
+sub moveToBack(w as conj,i as integer)
+dim a as integer
+dim b as integer
+dim c as integer
+b=w.list(i)
+for a =i to 1 step -1
+c=w.list(a-1)
+w.list(a)=c
+next a
+w.list(0)=b
+
+end sub
