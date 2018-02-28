@@ -1,7 +1,7 @@
 'fbc rand.bas
-dim maxcount as integer=9
+const maxcount as integer=9
 type aa
-dim a(0 to 10) as long
+dim a(0 to maxcount) as long
 end type
 
 dim a as aa
@@ -11,7 +11,7 @@ function randing(bb as byte) as long
 dim a as long
 dim b as string=""
 for a=0 to bb
-b=b+trim$(str$(int(Rnd*9.3)))
+b=b+trim$(str$(int(Rnd*9.6)))
 next a
 a=val(b)
 return a
