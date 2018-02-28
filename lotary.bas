@@ -50,6 +50,7 @@ end sub
 randomize
 randomize int(Rnd*32000)+1,1
 dim x as long
+color 1,15
 cls
 
 genarator a,maxcount
