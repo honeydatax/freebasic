@@ -18,12 +18,12 @@ next b
 print "....................."
 
 
-for b=1 to 10
-for c=1 to 10
-if a(c-1)>a(c) then
+for b=0 to 10
+for c=0 to b
+if a(b)<a(c) then
 e=a(c)
-a(c)=a(c-1)
-a(c-1)=e
+a(c)=a(b)
+a(b)=e
 end if
 next c
 next b
