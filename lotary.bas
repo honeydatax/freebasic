@@ -11,7 +11,7 @@ function randing(bb as byte) as long
 dim a as long
 dim b as string=""
 for a=0 to bb
-b=b+trim$(str$(int(Rnd*9)))
+b=b+trim$(str$(int(Rnd*9.3)))
 next a
 a=val(b)
 return a
