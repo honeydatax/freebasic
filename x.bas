@@ -9,11 +9,11 @@ declare sub event_drawScreens(pic as any ptr)
 dim aa as integer=0
 dim c as conj
 dim s as string ="..."
-dim x as integer
-dim y as integer
+dim x as integer=0
+dim y as integer=0
 dim w as integer=screenw
 dim h as integer=screenh
-dim xx as integer
+dim xx as integer=0
 dim yy as integer=0
 dim yyy as integer=screenh
 dim yy2 as integer=0
@@ -21,18 +21,18 @@ dim r2 as integer=0
 dim r as integer=0
 dim xxx as integer=0
 dim xxxx as integer=0
-dim tpict as integer
-dim t as integer
-dim y2 as integer
+dim tpict as integer=0
+dim t as integer=0
+dim y2 as integer=0
 startx c
 
 
 for r2=screenh to 0 step -8
-
-mult screenh,255,r2*188/354,2,yy2
+inverter yyy,r2,y
+mult screenh,255,y*188/354,2,yy2
 tpict=creatpics( c,yy2*2,yy2*2)
 circle c.pics(tpict).pic,(yy2,yy2),yy2,1,,,1.0,f
-circle c.pics(tpict).pic,(yy2,yy2),yy2*8/10,15,,,1.0,f
+circle c.pics(tpict).pic,(yy2,yy2),yy2*10/11,15,,,1.0,f
 
 next r2
 

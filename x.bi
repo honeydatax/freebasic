@@ -131,7 +131,7 @@ dim y2 as integer
 put (0,0),c.cene,pset
 for n=0 to c.o -1
 xxxx=c.objcts(c.list(n)).x
-t=screenh-c.objcts(c.list(n)).z
+t=c.objcts(c.list(n)).z
 inverter yyy,t,y
 defineX xxxx,maxxxx,screenw,screenh,255,t*188/354,2,xxx
 mult screenh,255,t*188/354,2,yy
