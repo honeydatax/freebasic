@@ -85,10 +85,12 @@ end sub
 dim i as long
 dim a as integer
 
+color 1,15
+cls 
 
 
 for  a=0 to 255
-if a=7 or a=8 or a=10 or a=13 then
+if a>6 and a<16 then
 print " ";
 else
 print chr$(a);
@@ -118,8 +120,85 @@ Poke i+8,  &b10100101
 Poke i+9,  &b11111111
 Poke i+10,&b10100101
 Poke i+11,&b10100101
-	
-	
+i = i+12
+
+Poke i,       &b00000000
+Poke i+1,  &b00011000
+Poke i+2,  &b00011000
+Poke i+3,  &b11111111
+Poke i+4,  &b00011000
+Poke i+5,  &b00011000
+Poke i+6,  &b00100100
+Poke i+7,  &b10100100
+Poke i+8,  &b01000010
+Poke i+9,  &b10000001
+Poke i+10,&b10000001
+Poke i+11,&b00000000
+
+i = i+12
+
+Poke i,       &b00000000
+Poke i+1,  &b00011000
+Poke i+2,  &b00111100
+Poke i+3,  &b01111110
+Poke i+4,  &b11111111
+Poke i+5,  &b11111111
+Poke i+6,  &b01111110
+Poke i+7,  &b00111100
+Poke i+8,  &b00011000
+Poke i+9,  &b00000000
+Poke i+10,&b00000000
+Poke i+11,&b00000000
+
+i = i+12
+
+Poke i,       &b00000000
+Poke i+1,  &b00010000
+Poke i+2,  &b10010001
+Poke i+3,  &b11111111
+Poke i+4,  &b00000000
+Poke i+5,  &b00000000
+Poke i+6,  &b00000000
+Poke i+7,  &b00000000
+Poke i+8,  &b00000000
+Poke i+9,  &b00000000
+Poke i+10,&b00000000
+Poke i+11,&b00000000
+
+
+i = i+12
+
+Poke i,       &b00011000
+Poke i+1,  &b00111100
+Poke i+2,  &b01111110
+Poke i+3,  &b11111111
+Poke i+4,  &b00011000
+Poke i+5,  &b00011000
+Poke i+6,  &b00011000
+Poke i+7,  &b00011000
+Poke i+8,  &b00011000
+Poke i+9,  &b00011000
+Poke i+10,&b00011000
+Poke i+11,&b00011000
+
+i = i+12
+
+Poke i,       &b11111111
+Poke i+1,  &b10000001
+Poke i+2,  &b10000001
+Poke i+3,  &b10000001
+Poke i+4,  &b10000001
+Poke i+5,  &b10000001
+Poke i+6,  &b10011001
+Poke i+7,  &b10000001
+Poke i+8,  &b10000001
+Poke i+9,  &b10000001
+Poke i+10,&b10000001
+Poke i+11,&b11111111
+
+
+
+
 	dosmemput @buffer(0),12*6, mem
 
 
