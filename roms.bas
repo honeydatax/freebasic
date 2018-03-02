@@ -7,6 +7,7 @@ dim shared seg as integer
 
 
 
+screen 12
 
 color 1,15
 cls
