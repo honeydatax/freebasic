@@ -268,6 +268,8 @@ if x<1 then x=1
 if y<1 then y=1
 for x1=0 to 10
 if yy(x1)= y and xx(x1)=x then
+yy(x1)=1000
+xx(x1)=1000
 score=score+100
 Sound(523, 60)  'C5
 Sound(587, 60)  'D5
