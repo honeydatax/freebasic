@@ -32,7 +32,6 @@ ll.orders(b)=c
 end if
 next b
 next a
-
 for a=0 to ll.count-1
 print ll.item(ll.orders(a))
 next a
@@ -42,7 +41,11 @@ end sub
 dim  ll as llist
 dim a as integer
 randomize ,1
+randomize int(rnd*32000),1
 
+color 1,15
+cls
+locate 1,1
 
 for a=0 to 12
 additem (ll ,string$(12,chr$(65+int(rnd*26))))
