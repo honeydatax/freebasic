@@ -24,7 +24,7 @@ a=0
 do
           line input #1,b
           b=trim(b)
-          
+          if b="" then b="                "
           e=lcase(b)
           f=0
           d=instr$(e,"type")
