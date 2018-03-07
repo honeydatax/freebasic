@@ -23,8 +23,8 @@ open b for output as 2
 a=0
 do
           line input #1,b
-          b=trim(b)
-          if len(b)<8 then b=b+"                "
+          b=ltrim(b)
+          if len(b)<9 then b=b+"                "
           e=lcase(b)
           f=0
           d=instr(e,"type ")
