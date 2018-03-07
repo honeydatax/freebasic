@@ -24,32 +24,32 @@ a=0
 do
           line input #1,b
           b=trim(b)
-          if b="" then b="                "
+          if len(b)<8 then b=b+"                "
           e=lcase(b)
           f=0
-          d=instr$(e,"type")
+          d=instr(e,"type ")
           if d=1then f=1
-          d=instr$(e,"do")
+          d=instr(e,"do")
           if d=1then f=1
-          d=instr$(e,"case")
+          d=instr(e,"case")
           if d=1 then f=1
-          d=instr$(e,"select")
+          d=instr(e,"select")
           if d=1 then f=1
-          d=instr$(e,"sub")
+          d=instr(e,"sub ")
           if d=1 then f=1
-          d=instr$(e,"for")
+          d=instr(e,"for ")
           if d=1 then f=1
-          d=instr$(e,"if")
+          d=instr(e,"if ")
           if d=1 then d=instr(e,"then")
           if d>len(e)-6 then d=1
           if d=1 then f=1
-          d=instr$(e,"function")
+          d=instr(e,"function ")
           if d=1 then f=1
-          d=instr$(e,"end")
+          d=instr(e,"end ")
           if d=1 then f=2
-          d=instr$(e,"loop")
+          d=instr(e,"loop")
           if d=1 then f=2
-          d=instr$(e,"next")
+          d=instr(e,"next ")
           if d=1 then f=2
           if a<0 then a=0
           if f=2 then a=a-10
