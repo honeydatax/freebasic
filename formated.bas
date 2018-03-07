@@ -41,7 +41,7 @@ do
           if d=1 then f=1
           d=instr$(e,"if")
           if d=1 then d=instr(e,"then")
-          if d>len(e)-3 then d=-1
+          if d>len(e)-6 then d=1
           if d=1 then f=1
           d=instr$(e,"function")
           if d=1 then f=1
