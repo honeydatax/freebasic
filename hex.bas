@@ -9,17 +9,17 @@ Function getData() as ip
           dim b as integer
           dim iip as ip
           asm                
-          call jk                
-          jk:                
-          pop eax                
-          mov [a],eax
-          mov ax,cs
-          mov [b],cs
-                          
-end asm                
-iip.address=a
-iip.segment=b
-return iip
+                    call jk                
+                    jk:                
+                    pop eax                
+                    mov [a],eax
+                    mov ax,cs
+                    mov [b],cs
+                                    
+          end asm                
+          iip.address=a
+          iip.segment=b
+          return iip
 end function
                 
                 
