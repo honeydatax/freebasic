@@ -37,6 +37,8 @@ do
           if d=1 then f=1
           d=instr(e,"sub ")
           if d=1 then f=1
+           d=instr(e,"asm")
+          if d=1 then f=1
           d=instr(e,"for ")
           if d=1 then f=1
           d=instr(e,"if ")
