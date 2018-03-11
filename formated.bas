@@ -7,7 +7,7 @@ dim f as integer
 
 on error goto exitCode
 print "file name to formated .bas";
-input b
+b=command(1)
 
 
 
