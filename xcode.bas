@@ -78,10 +78,23 @@ do
           e=lcase(b)
           f=0                
                           
+          d=instr(e,":")
+          if d>1then f=1
+          
           d=instr(e,"jo ")
           if d=1 then f=2
           d=instr(e,"jno ")
           if d=1 then f=2
+                          
+                          
+          
+          d=instr(e,"jnc ")
+          if d=1 then f=2
+          d=instr(e,"jc ")
+          if d=1 then f=2
+          d=instr(e,"jmp ")
+          if d=1 then f=2
+
                           
                           
           d=instr(e,"jna ")
@@ -93,7 +106,7 @@ do
           d=instr(e,"jae ")
           if d=1 then f=2
           d=instr(e,"jbe ")
-                          
+           if d=1 then f=2
                           
           d=instr(e,"jnz ")
           if d=1 then f=2
@@ -116,9 +129,13 @@ do
           if d=1 then f=3
           d=instr(e,"retz")
           if d=1 then f=3
-          d=instr(e,":")
-          if d>1then f=1
-                          
+     
+
+if instr(e,chr$(&h22))>1 or instr(e,chr$(&h27))>1 then     f=0
+
+if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0  or instr(e,"fs:")>0 )and (instr(e,"mov ")>0 or instr(e," jmp ")>0 or instr(e," call ")>0  )then     f=0
+
+                                                 
           if f=1 then 
                     b=ucase(e)
                     j=0                
