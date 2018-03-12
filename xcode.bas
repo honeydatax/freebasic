@@ -46,6 +46,7 @@ dim f as integer=0
 dim ff as integer=0
 dim fff as integer=0
 dim j as integer=0
+dim k as string
                 
 dim  ll as llist
 dim  lll as llist
@@ -78,8 +79,8 @@ do
           e=lcase(b)
           f=0                
                           
-          d=instr(e,":")
-          if d>1then f=1
+        d=instr(e,":")
+       if d>1then f=1
           
           d=instr(e,"jo ")
           if d=1 then f=2
@@ -133,7 +134,7 @@ do
 
 if instr(e,chr$(&h22))>1 or instr(e,chr$(&h27))>1 then     f=0
 
-if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0  or instr(e,"fs:")>0 )and (instr(e,"mov ")>0 or instr(e," jmp ")>0 or instr(e," call ")>0  )then     f=0
+if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0  or instr(e,"fs:")>0 )and (instr(e,"mov ")>0 or instr(e,"and ")>0 or instr(e,"or ")>0 or instr(e,"xor ")>0 or instr(e,"cmp ")>0 or instr(e,"add ")>0 or instr(e,"sub ")>0 or instr(e,"div ")>0 or instr(e,"mul ")>0 or instr(e," idiv ")>0 or instr(e,"imul ")>0 or instr(e,"dec ")>0 or instr(e,"inc ")>0)then     f=0
 
                                                  
           if f=1 then 
@@ -159,7 +160,9 @@ if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0
                           
           if f=2 then
                     b=ucase(e)
-                    ff= listItens(ll,trim(mid(b,instr(b," "))))
+                    k=b
+                    if instr(b,":") then k=mid (b,1,instr(b,":")-1)
+                    ff= listItens(ll,trim(mid(k,instr(k," "))))
                     if ff>-1 then
                                               
                               f=4                
@@ -167,7 +170,7 @@ if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0
                               else                
                               f=0                
                     end if                
-                    additem (lll,trim(mid(b,instr(b," "))))
+                    additem (lll,trim(mid(k,instr(k," "))))
                                     
                                     
           end if                
