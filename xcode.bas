@@ -75,8 +75,8 @@ a=0
 do                
           line input #1,b
           b=ltrim(b)
-          if len(b)<9 then b=b+"                "
-          e=lcase(b)
+          
+          e=lcase(b)+"                "
           f=0                
                           
         d=instr(e,":")
@@ -138,12 +138,12 @@ if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0
 
                                                  
           if f=1 then 
-                    b=ucase(e)
+                    
                     j=0                
                     if fff=0 then 
                               j=1                
                               else                
-                              ff= listItens(lll,trim(mid(b,1,instr(b,":")-1)))
+                              ff= listItens(lll,trim(mid(e,1,instr(e,":")-1)))
                               if ff>-1 then
                                         j=1                
                                         f=0                
@@ -153,16 +153,16 @@ if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0
                     end if                
                     fff=1                
                                     
-                    additem (ll,trim(mid(b,1,instr(b,":")-1)))
+                    additem (ll,trim(mid(e,1,instr(e,":")-1)))
                                     
                                     
           end if                
                           
           if f=2 then
-                    b=ucase(e)
-                    k=b
-                    if instr(b,":") then k=mid (b,1,instr(b,":")-1)
-                    ff= listItens(ll,trim(mid(k,instr(k," "))))
+                   
+                   
+                    if instr(e,":") then e=mid (e,1,instr(e,":")-1)
+                    ff= listItens(ll,trim(mid(e,instr(e," "))))
                     if ff>-1 then
                                               
                               f=4                
@@ -170,12 +170,12 @@ if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0
                               else                
                               f=0                
                     end if                
-                    additem (lll,trim(mid(k,instr(k," "))))
+                    additem (lll,trim(mid(e,instr(e," "))))
                                     
                                     
           end if                
                           
-          if f=3  then b=ucase(b)
+         
           if a<0 then a=0
                           
                           
@@ -185,6 +185,7 @@ if (instr(e,"ds:")>0 or instr(e,"cs:")>0 or instr(e,"es:")>0 or instr(e,"gs:")>0
           print #2,b
           if f=1 then a=a+10
           if f=4 then a=a-10
+          
           if f=3 then 
                     a=0                
                     ll.count=0
