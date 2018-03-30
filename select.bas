@@ -42,7 +42,7 @@ do
           loop                
           if a=chr(27) then exit do
           if bt=1 and x>0 and x< 16*16 and y>239-16 and y<239 then
-                    c=x/16                
+                    c=x\16                
           end if                
 loop                
                 
