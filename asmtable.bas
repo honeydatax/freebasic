@@ -12,7 +12,7 @@ open "table.asm" for output as 1
 print #1,"cos: "
 p=0                
 for n=0 to 360
-          if p=0 then print #1,"db ";
+          if p=0 then print #1,"dd ";
           m=10000*cos(n/180*pi)
           l=m                
           print  #1,l;
@@ -30,7 +30,7 @@ print #1," "
 print #1,"sin: "
 p=0                
 for n=0 to 360
-          if p=0 then print #1,"db ";
+          if p=0 then print #1,"dd ";
           m=10000*sin(n/180*pi)
           l=m                
           print  #1,l;
