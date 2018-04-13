@@ -477,8 +477,9 @@ function zerot(s as string)as string
                               s3=mid(s4,1,1)
                                               
                               if s3="." then exit do
-                              if s3="0" then s4=mid(s4,2)
                               if s3<>"0" then exit do
+                              if s3="0" and c>1 then s4=mid(s4,2)
+                                              
                                               
                     loop                
           end if                
@@ -511,8 +512,9 @@ sub sumlistfile(inps as string , outps as string)
                           
           do                
                     line input #1,s1
+                    if s1="" then s1="0.0"
                     s2=s1+"+="
-                    s1=trim(s1)
+                    s1="0"+trim(s1)
                     s1=rformated(s1)
                     r=stringpsum(r,s1,e)
                     r=zerot(r)
