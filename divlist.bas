@@ -916,7 +916,9 @@ sub strdiv(filein as string,fileout as string)
                                     
                     if like(ss2,sss)=-1 then
                               s1=s1+"1"
-                              ss2="0"                
+                              ss2="0"        
+                              if n>ry then  d=d+1
+                              goto again
                               else                
                               if less(ss2,sss)=-1 then 
                                         s1=s1+"0"
@@ -967,13 +969,14 @@ sub strdiv(filein as string,fileout as string)
                     n=n+1                
                                     
                                     
-                                    
-                    if n<=ry then 
-                              ss2=ss2+mid(ss,n,1)
-                              else                
-                              ss2=ss2+"0"
-                              d=d+1                
-                    end if                 
+                    if  great(ss2,sss)=0 and like (ss2,sss)=0 then
+                              if n<=ry then 
+                                        ss2=ss2+mid(ss,n,1)
+                                        else                
+                                        ss2=ss2+"0"
+                                        d=d+1                
+                              end if                 
+                    end if                
                     if carryc=-1 then print #2,jjj+ss2
                                     
           loop            
