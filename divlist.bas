@@ -927,7 +927,7 @@ sub strdiv(filein as string,fileout as string)
                               end if                 
                                               
                     end if                
-                    if great(ss2,sss) then
+                    if great(ss2,sss)  then
                               lll=len(ss2)
                                               
                               for h=9 to 1 step -1
@@ -935,7 +935,7 @@ sub strdiv(filein as string,fileout as string)
                                         ssss1=strmult(sss,j1,ee)
                                         ssss1=zerott("0"+ssss1)  
                                                         
-                                        if ee<>-1 and great(ss2,ssss1) then
+                                        if ee<>-1 and great(ss2,ssss1) or like(ss2,ssss1) then
                                                   carryc=-1
                                                   s1=s1+j1                
                                                   jjj=stringsub(ss2,ssss1,ee)
@@ -985,6 +985,7 @@ sub strdiv(filein as string,fileout as string)
                     print #2,string(len(s1)+8,"-")
                     print #2," \"
                     print #2,ass
+                    if len(s1)<=d-1 then s1=string(d-1-len(s1),"0")+s1
                     s1=ptat(s1,d-1)
                     s1=getforp(s1)
                     print #2,s1
