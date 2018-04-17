@@ -919,11 +919,13 @@ sub strdiv(filein as string,fileout as string)
                               s1=s1+"1"
                               ss2="0"        
                               if n>ry then  d=d+1
+                              f=n
                               goto again
                               else                
                               if less(ss2,sss)=-1 then 
                                         s1=s1+"0"
                                         carryc=-1
+                                        
                                         goto again
                               end if                 
                                               
