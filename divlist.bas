@@ -443,7 +443,8 @@ function strmultfile(s as string ,ss as string,byref e as integer,files as strin
                                     
                     e=ee                
                     if e=-1 then n=c+1
-          next n                
+          next n     
+          if a>=len(ll) then ll=string( a-len(ll),0)+ll           
           ll=ptat(ll,a)
           ll=getforp(ll)
           print  #1,string(aa,"-")
