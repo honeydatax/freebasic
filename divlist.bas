@@ -901,6 +901,10 @@ sub strdiv(filein as string,fileout as string)
           if c<1 then b=0
           d=d-b+1                
           a=len(sss)
+          if a>ry then
+          d=d+(a-ry)
+          ss=ss+string(a-ry,"0")
+          end if
           n=a                
           f=0                
           s1=""                
@@ -918,12 +922,13 @@ sub strdiv(filein as string,fileout as string)
                     if like(ss2,sss)=-1 then
                               s1=s1+"1"
                               ss2="0"        
-                              if n>ry then  d=d+1
+                              
                               f=n                
                               goto again
                               else                
                               if less(ss2,sss)=-1 then 
                                         s1=s1+"0"
+                                        
                                         carryc=-1
                                         f=n                
                                         goto again
