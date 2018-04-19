@@ -967,11 +967,11 @@ sub strdiv(filein as string,fileout as string)
                                     
                     ss2=zerott("0"+ss2)
                     if f>=ry and ss2="0" and carryc=-1 then 
-                              print #2,jjj+ss2
+                              print #2,space(n-len(ss2))+ss2
                               exit do     
                     end if                 
                     if f>=ry+17 and carryc=-1  then 
-                              print #2,jjj+ss2
+                              print #2,space(n-len(ss2))+ss2
                               exit do                
                     end if                
                     n=n+1                
@@ -985,7 +985,7 @@ sub strdiv(filein as string,fileout as string)
                                         d=d+1                
                               end if                 
                     end if                
-                    if carryc=-1 then print #2,jjj+ss2
+                    if carryc=-1 then print #2,space(n-len(ss2))+ss2
                                     
           loop            
                           
