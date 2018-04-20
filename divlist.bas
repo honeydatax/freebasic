@@ -876,7 +876,8 @@ sub strdiv(filein as string,fileout as string)
                           
           b=a-c           
           if c<1 then b=0
-          d=b                
+          d=b       
+          ss=zerott("0"+ss)
           a=len(ss)
           ry=a                
           f=a                
@@ -888,23 +889,27 @@ sub strdiv(filein as string,fileout as string)
                           
                           
           sss=rformated(s)
-          c=instr(sss,".")-1
+          c=instr(sss,".")
                           
-          ass=sss                
-          sss=remformated(sss)
+          ass=sss            
           a=len(sss)
+                          
+          sss=remformated(sss)
+                          
                           
                           
           sss=zerott("0"+sss)
                           
+                          
           b=a-c          
           if c<1 then b=0
-          d=d-b+1                
+          d=d-b                
+                          
           a=len(sss)
           if a>ry then
-          d=d+(a-ry)
-          ss=ss+string(a-ry,"0")
-          end if
+                    d=d+(a-ry)
+                    ss=ss+string(a-ry,"0")
+          end if                
           n=a                
           f=0                
           s1=""                
@@ -919,54 +924,38 @@ sub strdiv(filein as string,fileout as string)
                     ss2=zerott("0"+ss2)  
                                     
                                     
-                    if like(ss2,sss)=-1 then
-                              s1=s1+"1"
-                              ss2="0"        
-                              
-                              f=n                
-                              goto again
-                              else                
-                              if less(ss2,sss)=-1 then 
-                                        s1=s1+"0"
-                                        
+                                    
+                                    
+                    lll=len(ss2)
+                                    
+                    for h=9 to 0 step -1
+                              j1=chr(asc("0")+h)
+                              ssss1=strmult(sss,j1,ee)
+                              ssss1=zerott("0"+ssss1)  
+                                              
+                              if ee<>-1 and great(ss2,ssss1) or like(ss2,ssss1) then
                                         carryc=-1
-                                        f=n                
-                                        goto again
-                              end if                 
-                                              
-                    end if                
-                    if great(ss2,sss)  then
-                              lll=len(ss2)
-                                              
-                              for h=9 to 1 step -1
-                                        j1=chr(asc("0")+h)
-                                        ssss1=strmult(sss,j1,ee)
-                                        ssss1=zerott("0"+ssss1)  
+                                        s1=s1+j1                
+                                        jjj=stringsub(ss2,ssss1,ee)
+                                        jjj=zerott("0"+jjj)  
+                                        ss2=jjj                
                                                         
-                                        if ee<>-1 and great(ss2,ssss1) or like(ss2,ssss1) then
-                                                  carryc=-1
-                                                  s1=s1+j1                
-                                                  jjj=stringsub(ss2,ssss1,ee)
-                                                  jjj=zerott("0"+jjj)  
-                                                  ss2=jjj                
-                                                  jjj=string(lll-len(jjj),"0")
-                                                  jjj=string(len(s1)-1," ")
-                                                                  
-                                                                  
-                                                  f=n                
-                                                  h=-1                
-                                                  ee=0                
-                                        end if                
-                              next h                
-                                              
-                    end if                
+                                                        
+                                                        
+                                        f=n                
+                                        h=-1                
+                                        ee=0                
+                              end if                
+                    next h                
+                                    
+                                    
                     again:                
                     if ee=-1 then print #2,"error"
                     if ee=-1 then exit do
                                     
                                     
                     ss2=zerott("0"+ss2)
-                    if f>=ry and ss2="0" and carryc=-1 then 
+                    if f>ry and ss2="0" and carryc=-1 then 
                               print #2,space(n-len(ss2))+ss2
                               exit do     
                     end if                 
@@ -993,8 +982,8 @@ sub strdiv(filein as string,fileout as string)
                     print #2,string(len(s1)+8,"-")
                     print #2," \"
                     print #2,ass
-                    if len(s1)<=d-1 then s1=string(d-1-len(s1),"0")+s1
-                    s1=ptat(s1,d-1)
+                    if len(s1)<=d then s1=string(d-len(s1),"0")+s1
+                    s1=ptat(s1,d)
                     s1=getforp(s1)
                     print #2,s1
                                     
