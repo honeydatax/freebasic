@@ -1085,9 +1085,7 @@ sub squreroot(filein as string,fileout as string,x as integer,y as integer)
                               s1=zerott("0"+s1)  
                               if less(s1,ss) or like(s1,ss) then
                                         h=0                
-                                        jjj=stringsub(ss,s1,ee)
-                                        jjj=zerott("0"+jjj)           
-                                        print #2,jjj
+                                        
                               end if                 
                     next h                
           next b                
@@ -1095,6 +1093,8 @@ sub squreroot(filein as string,fileout as string,x as integer,y as integer)
                           
                           
           print #2,string(len(ss)+16,"-")
+          
+          ss2=getforp(ss2+".")
           print #2,"=~"+ss2
                           
           close #1                
