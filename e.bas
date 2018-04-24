@@ -782,7 +782,8 @@ sub e(s as string,i as integer)
           dim b as integer
           dim d as integer
           dim a as integer
-                          
+          
+if i>-1 then                
           s1=rformated(s)
           c=instr(s1,".")
           s1=remformated(s1)
@@ -791,6 +792,17 @@ sub e(s as string,i as integer)
           d=i-b-1                
           s2=s1+string(d,"0")
           priformated(s2)
+          else
+          
+           s1=rformated(s)
+          c=instr(s1,".")
+          s1=remformated(s1)
+          a=len(s1)
+          b=a-c                
+          d=abs(i)-b          
+          s2="0."+string(d,"0")+s1
+          printforp(s2)
+          end if
                           
 end sub       
                 
