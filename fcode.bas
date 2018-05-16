@@ -57,7 +57,7 @@ color 2,3
                 
                 
 on error goto exitCode
-print "file name to formated .asm ";
+print "file name to formated .c     ";
 b=command(1)
                 
                 
